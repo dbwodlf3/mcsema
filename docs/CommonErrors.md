@@ -101,7 +101,7 @@ $ objdump -x -d our_binary | grep 4007cf
 The `llvm-mc` tool can then tell you more about how the LLVM MC layer identifies the instruction:
 
 ```shell
-$ echo 'aeskeygenassist $0x0,%xmm1,%xmm2' | llvm-mc-3.8 -assemble -show-inst
+$ echo 'aeskeygenassist $0x0,%xmm1,%xmm2' | llvm-mc -assemble -show-inst
         .text
         aeskeygenassist $0, %xmm1, %xmm2 # <MCInst #176 AESKEYGENASSIST128rr
                                         #  <MCOperand Reg:128>
