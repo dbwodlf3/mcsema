@@ -209,10 +209,10 @@ git clone --depth 1 --single-branch --branch master https://github.com/lifting-b
 if [ -z "${VIRTUAL_ENV}" ]
 then
   # no virtualenv; global install for all users requires sudo
-  function make install { ;  sudo make install ; }
+  function make_install { ;  sudo make install ; }
 else
   # found a virtualenv; local install does not need root
-  function make install { ;  make install ; }
+  function make_install { ;  make install ; }
 fi
 
 # Download cxx-common, build Remill. 
