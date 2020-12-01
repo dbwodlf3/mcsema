@@ -209,16 +209,16 @@ git clone --depth 1 --single-branch --branch master https://github.com/lifting-b
 if [ -z "${VIRTUAL_ENV}" ]
 then
   # no virtualenv; global install for all users requires sudo
-  function make_install { ;  sudo make install ; }
+  function make install { ;  sudo make install ; }
 else
   # found a virtualenv; local install does not need root
-  function make_install { ;  make install ; }
+  function make install { ;  make install ; }
 fi
 
 # Download cxx-common, build Remill. 
 ./remill/scripts/build.sh --llvm-version 9.0
 cd remill-build
-make_install
+make install
 
 export TRAILOFBITS_LIBRARIES=`pwd`/remill-build/libraries
 
@@ -227,7 +227,7 @@ mkdir anvill-build
 pushd anvill-build
 ${TRAILOFBITS_LIBRARIES}/cmake/bin/cmake ../anvill
 make
-make_install
+make install
 popd
 
 # Build and install McSema
@@ -235,7 +235,7 @@ mkdir mcsema-build
 pushd mcsema-build
 ${TRAILOFBITS_LIBRARIES}/cmake/bin/cmake ../mcsema
 make
-make_install
+make install
 popd
 ```
 
